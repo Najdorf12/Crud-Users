@@ -31,7 +31,7 @@ export function UsersForm( { addUser , userSelected, editUser }) {
 
   return (
     <>
-    <h2>FORM</h2>
+   
       <section className="form-container">
         <form onSubmit={ handleSubmit(submit)}>
           
@@ -103,7 +103,7 @@ export function UsersForm( { addUser , userSelected, editUser }) {
             <label htmlFor="user-birthday"> Birthday </label>
             <input 
             id="user-birthday" 
-            type="date" 
+            type="text" 
             {...register("birthday", { 
               required:{
                 value: true,
@@ -113,8 +113,7 @@ export function UsersForm( { addUser , userSelected, editUser }) {
             />
             <p className="error"> {errors.birthday?.message} </p>
           </div>
-          
-          
+        
           <button onClick={ submit } className="btn-form"> SEND </button>
        
         </form>

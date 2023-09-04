@@ -12,7 +12,7 @@ function App() {
 
   const getAllUsers = () => {
     axios
-      .get("https://users-crud.academlo.tech/users/")
+      .get("http://localhost:8080/users")
       .then((resp) => setUsersList(resp.data))
       .catch((error) => console.error(error));
   };
@@ -23,7 +23,7 @@ function App() {
 
   const addUser = newUser => {
     axios
-      .post("https://users-crud.academlo.tech/users/", newUser)
+      .post("https://localhost:8080/users/", newUser)
       .then(() => {
         getAllUsers();
       })
@@ -32,7 +32,7 @@ function App() {
   
   const deleteUser = id => {
     axios
-      .delete(`https://users-crud.academlo.tech/users/${id}/`)
+      .delete(`https://localhost:8080/users/${id}/`)
       .then(() => getAllUsers())
       .catch((error) => console.error(error));
   }
@@ -43,7 +43,7 @@ function App() {
 
   const editUser = user => {
     axios
-      .put(`https://users-crud.academlo.tech/users/${user.id}/`,user)
+      .put(`https://localhost:8080/users/${user.id}/`,user)
       .then(() =>{
         getAllUsers();
         setUserSelected(null);
@@ -53,7 +53,9 @@ function App() {
 
   return (
     <>
-      <UsersForm 
+     <h2>FORM</h2>
+    <div className="app-container">
+    <UsersForm 
       addUser= {addUser} 
       userSelected = {userSelected}
       editUser= {editUser}
@@ -64,7 +66,11 @@ function App() {
       deleteUser= {deleteUser}
       selectUser= {selectUser}
       />
+    
+
+    </div>
     </>
+     
   );
 }
 
