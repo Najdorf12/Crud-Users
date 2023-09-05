@@ -16,7 +16,7 @@ export function UsersForm( { addUser , userSelected, editUser }) {
         password:"",
         birthday:""
       })
-    }
+    }0
   },[userSelected])
 
   

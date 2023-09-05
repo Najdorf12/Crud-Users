@@ -23,16 +23,14 @@ function App() {
 
   const addUser = newUser => {
     axios
-      .post("https://localhost:8080/users/", newUser)
-      .then(() => {
-        getAllUsers();
-      })
-      .catch((error) => console.error(error));
+      .post("http://localhost:8080/users/", newUser)
+    
   };
   
   const deleteUser = id => {
+    console.log("id=========",id)
     axios
-      .delete(`https://localhost:8080/users/${id}/`)
+      .delete(`http://localhost:8080/users/${id}/`)
       .then(() => getAllUsers())
       .catch((error) => console.error(error));
   }
